@@ -20,5 +20,5 @@ Mriyav is a modern web application built with Next.js, React, and TypeScript. It
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/mriyav.git
+   git clone https://github.com/melnig/mriyav.git
    ```

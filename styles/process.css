@@ -22,7 +22,7 @@
 }
 
 .process-path {
-  display: none; /* Сховати лінію для мобільних пристроїв */
+  display: none;
 }
 
 .process-steps {
@@ -110,7 +110,7 @@
   }
 
   .process-step {
-    max-width: 548px; /*Точна ширина*/
+    max-width: 548px;
     height: 172px;
   }
   .process-path {
@@ -122,5 +122,10 @@
     width: 800px;
     height: 100%;
     z-index: 1;
+  }
+}
+@media (max-width: 768px) {
+  .process-step {
+    max-width: 100%;
   }
 }

@@ -103,15 +103,6 @@ export default function Portfolio() {
           }}
           modules={[EffectCoverflow, Navigation, Autoplay]}
           className="portfolio-swiper"
-          onSwiper={(swiper) =>
-            console.log("Swiper initialized", swiper.params.slidesPerView)
-          } // Дебаг-лог
-          onBreakpoint={(swiper) =>
-            console.log("Breakpoint applied", swiper.params.slidesPerView)
-          } // Дебаг-лог
-          onSlideChange={(swiper) =>
-            console.log("Active slide index:", swiper.activeIndex)
-          } // Дебаг-лог для активного слайда
         >
           {portfolioData.map((item) => (
             <SwiperSlide key={item.id} className="portfolio-slide">

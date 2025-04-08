@@ -12,7 +12,7 @@ export default function Process() {
         "We explore your needs, market, and goals to lay a solid foundation.",
       details:
         "Our team conducts in-depth analysis of your business, target audience, and competitors. We identify opportunities and challenges to ensure a strong starting point for your project.",
-      icon: "/icons/research.svg", // Шлях до іконки (можеш замінити на свою)
+      icon: "/icons/research.svg",
     },
     {
       number: "02",
@@ -52,7 +52,6 @@ export default function Process() {
   ];
 
   const pathRef = useRef<SVGPathElement>(null);
-  // Виправляємо типізацію: дозволяємо null у RefObject
   const stepsRef = useRef<React.RefObject<HTMLDivElement | null>[]>(
     steps.map(() => useRef<HTMLDivElement | null>(null))
   );
@@ -87,7 +86,6 @@ export default function Process() {
       stepsElements.forEach((step, index) => {
         const stepPosition = (index + 0.5) / steps.length;
         if (scrollProgress >= stepPosition - 0.05 && step) {
-          // Перевіряємо, що step не null
           step.classList.add("visible");
         }
       });
@@ -116,8 +114,8 @@ export default function Process() {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className={`process-step ${index % 2 === 0 ? "left" : "right"}`}
-              ref={stepsRef.current[index]} // Передаємо RefObject
+              className="process-step" // Прибрали left/right
+              ref={stepsRef.current[index]}
             >
               <img src={step.icon} alt={step.title} />
               <h3 className="step-title">{step.title}</h3>

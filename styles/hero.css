@@ -1,5 +1,5 @@
 .hero {
-  padding: 4rem 0; /* Зменшимо padding, щоб секція не була занадто високою */
+  padding: 6rem 0 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
 
 .hero-title {
   font-family: "Exo 2", sans-serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -42,7 +42,7 @@
 
 .hero-subtitle {
   font-family: "Exo 2", sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-bottom: 2rem;
   max-width: 500px;
 }

@@ -20,12 +20,13 @@
 
 .portfolio-swiper {
   padding: 2rem 0;
+  overflow: hidden; /* Приховаємо сусідні слайди */
 }
 
 .portfolio-slide {
   display: flex;
   justify-content: center;
-  opacity: 0.5;
+  align-items: center; /* Центруємо по вертикалі */
   transition: opacity 0.3s ease;
 }
 
@@ -36,7 +37,6 @@
 .portfolio-item {
   background: #f9fafb;
   border-radius: 8px;
-  overflow: hidden;
   width: 100%;
   max-width: 400px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,9 @@
   position: relative;
   width: 100%;
   height: 200px;
-  overflow: hidden;
+  border-top-left-radius: 8px; /* Скруглення для зображення */
+  border-top-right-radius: 8px;
+  overflow: hidden; /* Залишаємо overflow для зображення */
 }
 
 .portfolio-image img {
@@ -117,16 +119,37 @@
 /* Стилі для кнопок навігації Swiper */
 .swiper-button-next,
 .swiper-button-prev {
-  display: none;
+  display: none; /* Приховуємо кнопки навігації */
+}
+
+@media (min-width: 768px) {
+  .portfolio-slide {
+    opacity: 0.5; /* Затемнення для неактивних слайдів тільки на великих екранах */
+  }
 }
 
 @media (max-width: 768px) {
   .portfolio-swiper {
     padding: 1rem 0;
+    overflow: hidden; /* Приховаємо сусідні слайди на мобільних */
   }
 
   .portfolio-slide {
-    max-width: 300px;
+    max-width: 100%; /* Слайд займає всю ширину контейнера */
+    padding: 0; /* Без відступів */
+    opacity: 1; /* Усі слайди мають повну видимість на мобільних */
+  }
+
+  .portfolio-slide:not(.swiper-slide-active) {
+    opacity: 0; /* Приховаємо неактивні слайди на мобільних */
+  }
+
+  .portfolio-item {
+    max-width: 100%; /* Картка займає всю ширину слайда */
+  }
+
+  .portfolio-item:hover {
+    box-shadow: none; /* Вимикаємо тінь при ховері на мобільних */
   }
 
   .portfolio-image {
@@ -134,6 +157,6 @@
   }
 
   .portfolio-title {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Зменшуємо розмір заголовка для мобільних */
   }
 }

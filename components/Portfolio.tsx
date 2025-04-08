@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -66,11 +65,6 @@ const portfolioData: PortfolioItem[] = [
 ];
 
 export default function Portfolio() {
-  useEffect(() => {
-    // Динамічне завантаження Swiper для клієнтської сторони
-    import("swiper").then(() => {});
-  }, []);
-
   return (
     <section className="portfolio">
       <div className="portfolio-container">
@@ -79,22 +73,45 @@ export default function Portfolio() {
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}
+          slidesPerView={1} // За замовчуванням 1 слайд (для мобільних)
+          spaceBetween={10} // Невеликий відступ на мобільних
           coverflowEffect={{
-            rotate: 50,
+            rotate: 0, // Вимикаємо поворот на мобільних
             stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
+            depth: 0, // Вимикаємо глибину на мобільних
+            modifier: 0, // Вимикаємо модифікатор
+            slideShadows: false, // Вимикаємо тіні
           }}
-          navigation
+          navigation={false} // Кнопки навігації вимкнені
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
+          breakpoints={{
+            768: {
+              slidesPerView: 3, // 3 слайди на екранах ≥ 768px
+              spaceBetween: 20, // Відступ на великих екранах
+              coverflowEffect: {
+                rotate: 50, // Повертаємо ефект coverflow на великих екранах
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              },
+            },
+          }}
           modules={[EffectCoverflow, Navigation, Autoplay]}
           className="portfolio-swiper"
+          onSwiper={(swiper) =>
+            console.log("Swiper initialized", swiper.params.slidesPerView)
+          } // Дебаг-лог
+          onBreakpoint={(swiper) =>
+            console.log("Breakpoint applied", swiper.params.slidesPerView)
+          } // Дебаг-лог
+          onSlideChange={(swiper) =>
+            console.log("Active slide index:", swiper.activeIndex)
+          } // Дебаг-лог для активного слайда
         >
           {portfolioData.map((item) => (
             <SwiperSlide key={item.id} className="portfolio-slide">

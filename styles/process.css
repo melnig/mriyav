@@ -1,7 +1,6 @@
 .process {
   padding: 2rem 0;
   position: relative;
-  overflow-x: hidden;
 }
 
 .process-container {
@@ -40,8 +39,8 @@
   padding: 1.5rem;
   border-radius: 8px;
   width: 100%;
-  max-width: 548px; /* Точна ширина блоку */
-  height: 172px; /* Точна висота блоку */
+  max-width: 548px;
+  height: 172px;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -112,6 +111,7 @@
 
   .process-step {
     max-width: 548px; /*Точна ширина*/
+    height: 172px;
   }
   .process-path {
     display: block;

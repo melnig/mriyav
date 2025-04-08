@@ -30,11 +30,27 @@ export default function Header({ onCTAClick, scrollProgress }: HeaderProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, [isMenuOpen, isClient]);
 
+  const handleScrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false); // Закриваємо меню після кліку
+    }
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <header className="header">
         <div className="header-container">
-          <div className="logo">
+          <div
+            className="logo"
+            onClick={handleScrollToTop}
+            style={{ cursor: "pointer" }}
+          >
             <span className="logo-text">Mri</span>
             <span className="logo-y">y</span>
             <span className="logo-text">av</span>
@@ -52,24 +68,36 @@ export default function Header({ onCTAClick, scrollProgress }: HeaderProps) {
           <nav className={`nav ${isMenuOpen ? "nav-open" : ""}`}>
             <ul className="nav-list">
               <li>
-                <a href="/" className="nav-link">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/portfolio" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => handleScrollToSection("portfolio")}
+                >
                   Portfolio
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/about" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => handleScrollToSection("insights")}
+                >
+                  Insights
+                </button>
+              </li>
+              <li>
+                <button
+                  className="nav-link"
+                  onClick={() => handleScrollToSection("about")}
+                >
                   About
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/contact" className="nav-link">
+                <button
+                  className="nav-link"
+                  onClick={() => handleScrollToSection("contact")}
+                >
                   Contact
-                </a>
+                </button>
               </li>
               <li>
                 <button className="nav-cta" onClick={() => setIsFormOpen(true)}>

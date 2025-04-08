@@ -90,7 +90,7 @@ export default function Insights() {
   }, [visibleItems]);
 
   return (
-    <section className="insights">
+    <section className="insights" id="insights">
       <div className="insights-container">
         <h2 className="insights-title">Insights</h2>
         <div className="insights-grid">

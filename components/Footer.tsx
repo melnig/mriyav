@@ -4,11 +4,22 @@ import Link from "next/link";
 import "../styles/footer.css";
 
 export default function Footer() {
+  const handleScrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
         {/* Логотип */}
-        <div className="footer-logo">
+        <div className="footer-logo" onClick={handleScrollToTop}>
           <Link href="/">
             <span className="logo-text">Mri</span>
             <span className="logo-y">y</span>
@@ -21,16 +32,24 @@ export default function Footer() {
           <h4>Navigation</h4>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <button onClick={() => handleScrollToSection("portfolio")}>
+                Portfolio
+              </button>
             </li>
             <li>
-              <Link href="/portfolio">Portfolio</Link>
+              <button onClick={() => handleScrollToSection("insights")}>
+                Insights
+              </button>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <button onClick={() => handleScrollToSection("about")}>
+                About
+              </button>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <button onClick={() => handleScrollToSection("contact")}>
+                Contact
+              </button>
             </li>
           </ul>
         </div>
@@ -109,7 +128,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Mriyav. All rights reserved.</p>
+        <p>© 2025 Mriyav. All rights reserved.</p>
       </div>
     </footer>
   );

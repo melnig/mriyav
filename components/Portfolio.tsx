@@ -66,7 +66,7 @@ const portfolioData: PortfolioItem[] = [
 
 export default function Portfolio() {
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="portfolio">
       <div className="portfolio-container">
         <h2 className="portfolio-title">Our Portfolio</h2>
         <Swiper

@@ -56,7 +56,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact">
+    <section className="contact" id="contact">
       <div className="contact-container">
         <h2 className="contact-title">Get in Touch</h2>
         <div className="contact-form-wrapper" ref={formRef}>

@@ -30,6 +30,12 @@
   display: flex;
   align-items: center;
   transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit; /* Спадкуємо колір від батьківського елемента */
 }
 
 .logo-text {
@@ -144,11 +150,16 @@
   text-align: center;
 }
 
-.nav-link {
+button.nav-link {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 400;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
+  background: transparent;
+  text-decoration: none;
+  border: none;
+  font-style: normal;
   color: #fff;
 }
 
@@ -220,6 +231,23 @@
   .nav-link {
     font-size: 1.125rem;
     font-weight: 400;
+  }
+
+  button.nav-link {
+    font-size: 1.125rem;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    font-style: normal;
+    color: #fff;
+  }
+
+  button.nav-link:hover {
+    cursor: pointer;
   }
 
   .nav-link:hover {

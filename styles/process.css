@@ -1,0 +1,126 @@
+.process {
+  padding: 2rem 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.process-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
+  min-height: 1400px; /* Збільшено для 5 блоків */
+}
+
+.process-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b132b;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.process-path {
+  display: none; /* Сховати лінію для мобільних пристроїв */
+}
+
+.process-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  z-index: 2;
+}
+
+.process-step {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 548px; /* Точна ширина блоку */
+  height: 172px; /* Точна висота блоку */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.process-step img {
+  width: 80px;
+  height: 80px;
+}
+
+.process-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+}
+
+.process-step.left {
+  transform: translateX(-150px) translateY(30px);
+}
+
+.process-step.right {
+  transform: translateX(150px) translateY(30px);
+}
+
+.process-step.left.visible,
+.process-step.right.visible {
+  transform: translateX(0) translateY(0);
+}
+
+.step-number {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4682b4;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0b132b;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.step-description {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  color: #0b132b;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .process {
+    padding: 1rem 0;
+  }
+
+  .process-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .process-step {
+    max-width: 548px; /*Точна ширина*/
+  }
+  .process-path {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 100%;
+    z-index: 1;
+  }
+}

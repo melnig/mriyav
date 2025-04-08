@@ -1,0 +1,130 @@
+.footer {
+  padding: 3rem 0 1rem;
+  background: #253154;
+  color: #ffffff;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo a {
+  text-decoration: none;
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.footer .logo-text {
+  color: #ffffff;
+}
+
+.logo-y {
+  color: #4682b4; /* Брендовий синій */
+}
+
+.footer-nav,
+.footer-contact,
+.footer-social {
+  text-align: center;
+}
+
+.footer-nav h4,
+.footer-contact h4,
+.footer-social h4 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a,
+.footer-contact a {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  color: #4682b4; /* Брендовий синій */
+}
+
+.footer-contact p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.footer-social .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-social a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #4682b4; /* Брендовий синій */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(70, 130, 180, 0.3);
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 0.875rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-logo {
+    text-align: left;
+  }
+
+  .footer-nav,
+  .footer-contact,
+  .footer-social {
+    text-align: left;
+  }
+
+  .footer-social .social-links {
+    justify-content: flex-start;
+  }
+}

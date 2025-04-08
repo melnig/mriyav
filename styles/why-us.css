@@ -1,0 +1,118 @@
+.why-us {
+  padding: 1rem 0;
+  position: relative;
+}
+
+.why-us-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.why-us-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin-bottom: 3rem;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.why-us-item {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 8px;
+  padding: 2rem;
+  opacity: 0;
+  filter: blur(5px);
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+}
+
+.why-us-item.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.why-us-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.why-us-item.visible::before {
+  opacity: 1;
+  animation: holographic-glow 2s infinite alternate;
+  border-radius: 8px;
+}
+
+.why-us-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(70, 130, 180, 0.5);
+}
+
+.why-us-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 0 5px rgba(70, 130, 180, 0.3));
+}
+
+.why-us-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.why-us-item-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  margin-bottom: 0.5rem;
+}
+
+.why-us-item-description {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.2rem;
+
+  opacity: 0.8;
+}
+
+@keyframes holographic-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.7);
+  }
+}
+
+@media (min-width: 768px) {
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-us-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .why-us-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

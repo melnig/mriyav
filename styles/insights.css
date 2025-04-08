@@ -1,0 +1,134 @@
+.insights {
+  padding: 1rem 0;
+  position: relative;
+}
+
+.insights-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.insights-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.insights-grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: center; /* Центруємо картки в сітці */
+}
+
+/* Адаптивна сітка */
+@media (max-width: 767px) {
+  .insights-grid {
+    grid-template-columns: 1fr; /* Одна колонка на мобільних */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .insights-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(300px, 400px)
+    ); /* Дві колонки з обмеженням ширини */
+  }
+}
+
+@media (min-width: 1024px) {
+  .insights-grid {
+    grid-template-columns: repeat(
+      3,
+      minmax(300px, 400px)
+    ); /* Три колонки з обмеженням ширини */
+  }
+}
+
+.insights-item {
+  background-color: #fff;
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.insights-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.insights-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(70, 130, 180, 0.5);
+}
+
+.insights-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.insights-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.insights-item:hover .insights-image img {
+  transform: scale(1.05);
+}
+
+.insights-item-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  display: block;
+  text-align: center;
+}
+
+/* Моноширинний шрифт під час анімації */
+.matrix-decoding {
+  font-family: "Courier New", Courier, monospace !important;
+  letter-spacing: 1px; /* Додаємо трохи простору між символами */
+}
+
+.insights-item-description {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.insights-link {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4682b4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.insights-link:hover {
+  color: #5a9bd4;
+}
+
+@media (min-width: 768px) {
+  .insights-title {
+    font-size: 2.5rem;
+  }
+
+  .insights-image {
+    height: 250px;
+  }
+}

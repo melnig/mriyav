@@ -1,0 +1,147 @@
+.contact {
+  padding: 1rem 0 4rem;
+  position: relative;
+}
+
+.contact-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.contact-form-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-wrapper.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contact-form {
+  background: #253154;
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-field label {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 4px;
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Додаємо box-sizing */
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #4682b4;
+}
+
+.form-field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-submit {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #4682b4;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.contact-submit:disabled {
+  background: #5a9bd4;
+  cursor: not-allowed;
+}
+
+.contact-submit:hover:not(:disabled) {
+  background: #5a9bd4;
+}
+
+/* Анімація сканування */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(70, 130, 180, 0.5);
+  animation: scan 1.5s linear forwards;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh); /* Рухається вниз */
+  }
+}
+
+.contact-success {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-success p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .contact-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    padding: 3rem;
+  }
+}

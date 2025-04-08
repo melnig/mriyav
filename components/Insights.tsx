@@ -78,6 +78,7 @@ export default function Insights() {
             newVisible[index] = true;
             return newVisible;
           });
+          console.log(`Item ${index + 1} became visible`); // Дебаг-лог
         }
       });
     };
@@ -117,50 +118,12 @@ export default function Insights() {
   );
 }
 
-// Компонент для матричної анімації тексту
 function MatrixText({ text, isVisible }: { text: string; isVisible: boolean }) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDecoding, setIsDecoding] = useState(true);
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    let currentText = "";
-    let iterations = 0;
-    const maxIterations = 20; // Кількість ітерацій для "розшифрування"
-
-    intervalRef.current = setInterval(() => {
-      if (iterations >= maxIterations) {
-        setDisplayedText(text);
-        setIsDecoding(false); // Завершуємо анімацію
-        if (intervalRef.current) clearInterval(intervalRef.current);
-        return;
-      }
-
-      currentText = text
-        .split("")
-        .map((char, index) => {
-          if (index < iterations * (text.length / maxIterations)) {
-            return char;
-          }
-          return characters[Math.floor(Math.random() * characters.length)];
-        })
-        .join("");
-
-      setDisplayedText(currentText);
-      iterations++;
-    }, 50);
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isVisible, text]);
-
   return (
-    <span className={isDecoding ? "matrix-decoding" : ""}>
-      {displayedText || text}
+    <span
+      style={{ opacity: isVisible ? 1 : 0, transition: "opacity 0.5s ease" }}
+    >
+      {text}
     </span>
   );
 }

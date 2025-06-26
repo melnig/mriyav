@@ -139,5 +139,6 @@
 
   .footer-social .social-links {
     justify-content: flex-start;
+    margin-top: 0.5rem;
   }
 }

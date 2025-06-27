@@ -19,11 +19,11 @@ interface PortfolioItem {
 const portfolioData: PortfolioItem[] = [
   {
     id: 1,
-    title: "Blog for Solar Energy Solutions",
+    title: "Pizza App",
     description:
-      "A responsive blog for solar energy solutions, built with PHP, MySQL, and JavaScript.",
+      "A responsive pizza ordering app, built with React.js and Redux.",
     image: "/portfolio/project1.png",
-    link: "https://solarmind.com.ua",
+    link: "https://pizza-app-olive-pi.vercel.app/",
     category: "Web",
   },
   {
